@@ -24,7 +24,8 @@ with open(filename, 'r') as f:
 
 count = 0
 help_word = ''
-wanted_number = 0
+wanted_number_one = 0
+wanted_number_two = 0
 #for every password
 while count < len(passwords):
     #get password that will be checked from list
@@ -36,8 +37,23 @@ while count < len(passwords):
     amount_letter_in_password = relevant_password.count(letters[count])
     #check if amount is in range
     if amount_letter_in_password >= range_values[0] and amount_letter_in_password <= range_values[1]:
-        wanted_number = wanted_number +1
-    count = count+1
-print(wanted_number)
+        wanted_number_one = wanted_number_one + 1
+
+    #solution for part two of day two
+    print(passwords[count][range_values[0]-1])
+    print(passwords[count][range_values[1]-1])
+    print(letters[count])
+    if passwords[count][range_values[0]-1] == letters[count] and not passwords[count][range_values[1]-1] == letters[count]:
+        wanted_number_two = wanted_number_two + 1
+        print("if")
+    elif passwords[count][range_values[1]-1] == letters[count] and not passwords[count][range_values[0]-1] == letters[count]:
+        wanted_number_two = wanted_number_two + 1
+        print("elif")
+
+    count = count + 1
+print("solution part one: ")
+print(wanted_number_one)
+print("solution part two: ")
+print(wanted_number_two)
 print('finish')
 
