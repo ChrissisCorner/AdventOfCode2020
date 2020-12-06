@@ -1,4 +1,4 @@
-filename = 'day2.txt'
+filename = 'day02.txt'
 
 
 passwords =[]
